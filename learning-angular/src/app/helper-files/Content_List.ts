@@ -1,16 +1,6 @@
 import {Content} from "./content-interface";
-import {Component} from "@angular/core";
-//
-// @NgModule({
-//
-//   imports: [],
-//   exports: [],
-//   declarations: [],
-//   providers: [],
-// })
 
 export class ContentList {
-
   private _contentArray: Content[];
 
   get contentArray(): Content[] {
@@ -22,7 +12,11 @@ export class ContentList {
   }
 
   constructor() {
+    // Create empty array for Content
     this._contentArray = [];
+
+    // Create entries for Content array
+    this.generateContent()
   }
 
   addOne(content: Content) {
@@ -37,7 +31,20 @@ export class ContentList {
     }
   }
 
-}
+  generateContent() {
 
-class ContentListImpl extends ContentList {
+    // Create dummy entries for content
+    for (let i = 1; i < 4; i++) {
+      this.addOne({
+        author: ` Author ${i}`,
+        body: `Body: ${i}`,
+        id: i,
+        imgUrl: `http://1.1.1.1/${i}`,
+        tags: [`Tag: ${i}`],
+        title: `Title: ${i}`,
+        type: `Type: ${i}`
+      });
+    }
+  }
+
 }

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ContentList} from '../helper-files/content-list';
+import {Component} from '@angular/core';
+import {ContentList} from "../helper-files/Content_List";
 
 @Component({
   selector: 'app-content-card',
@@ -12,7 +12,7 @@ import {ContentList} from '../helper-files/content-list';
       </h2>
 
       <ul>
-          <li *ngFor="let content of getContent_List.contentArray">
+          <li *ngFor="let content of _getContent_List.contentArray">
               ID: {{content.id}} <br>
               Author:  {{content.author}} <br>
               Title:     {{content.title}}<br>
@@ -25,46 +25,7 @@ import {ContentList} from '../helper-files/content-list';
   `
 })
 
-export class ContentCardComponent implements OnInit {
-  private _getContent_List: ContentList;
-
-  constructor() {
-    this._getContent_List = new ContentList();
-  }
-
-  get getContent_List(): ContentList {
-    return this._getContent_List;
-  }
-
-  generateContent() {
-    // this._getContent_List.addOne(
-    //   {
-    //     author: "Ernest Hemingway",
-    //     body: "",
-    //     id: 1,
-    //     imgUrl: "",
-    //     title: "The Old Man and the Sea",
-    //     type: "Book",
-    //     tags: ["Action", "Drama"],
-    //   }
-    // );
-
-    for (let i = 1; i < 4; i++) {
-      this._getContent_List.addOne({
-        author: ` Author ${i}`,
-        body: `Body: ${i}`,
-        id: i,
-        imgUrl: "",
-        tags: [`Tag:  + ${i}`],
-        title: `Title: ${i}`,
-        type: `Type: ${i}`
-      });
-    }
-  }
-
-  ngOnInit(): void {
-    this.generateContent()
-  }
-
+export class ContentCardComponent {
+  public _getContent_List: ContentList = new ContentList();
 
 }
