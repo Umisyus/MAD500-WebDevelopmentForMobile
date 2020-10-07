@@ -1,6 +1,20 @@
-<!--Read the contents from the content_List-->
-<!--<ul>-->
-<!--  <li *ngFor="let content of {{}}">-->
-<!--    {{content}}-->
-<!--  </li>-->
-<!--</ul>-->
+<h2>
+  Contents of List
+</h2>
+
+<ul *ngFor="let content of _getContent_List.contentArray">
+
+
+  <li>
+    ID: {{content.id}} <br>
+    Author:  {{content.author}} <br>
+    Title:     {{content.title}}<br>
+    Content Body:  {{content.body}}<br>
+    Type:     {{content.type}}<br>
+    Image URL:     {{content.imgUrl}}<br>
+    Tags:     {{content.tags}}
+  </li>
+
+
+</ul>
+

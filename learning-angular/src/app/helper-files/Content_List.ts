@@ -24,11 +24,14 @@ export class ContentList {
   }
 
   getElementAt(index: number) {
-    if (this.contentArray != null && this.contentArray.length > 0)
+    if (this.contentArray != null && this.contentArray.length > 0) {
       return this.contentArray[index];
-    else {
-      return null
+
     }
+
+    // An error occurred...
+    return "<h1>ERROR! ITEM DOESN'T EXIST!</h1>"
+
   }
 
   generateContent() {
@@ -36,13 +39,16 @@ export class ContentList {
     // Create dummy entries for content
     for (let i = 1; i < 4; i++) {
       this.addOne({
-        author: ` Author ${i}`,
+        author: `Author ${i}`,
         body: `Body: ${i}`,
         id: i,
         imgUrl: `http://1.1.1.1/${i}`,
-        tags: [`Tag: ${i}`],
-        title: `Title: ${i}`,
-        type: `Type: ${i}`
+        tags:
+          [`Tag: ${i}`],
+        title:
+          `Title: ${i}`,
+        type:
+          `Type: ${i}`
       });
     }
   }
