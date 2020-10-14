@@ -1,4 +1,4 @@
-<app-content-card *ngFor="let item of contents" [contents]="item" class="content-card{{item.id}}">
-
+<app-content-card *ngFor="let item of contents; first as isFirst" [contents]="item" class="content-card{{item.id}}"
+                  [class.isFirst]="isFirst">
 </app-content-card>
 

@@ -10,10 +10,21 @@
   background-color: blue;
 }
 
-:host.isFirst{
+img {
+  margin: auto;
+  width: 100%;
+}
+
+:host.isFirst {
   color: dodgerblue;
 }
 
 .contentWrapper {
-color: black;
+  flex: auto;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  width: 50%;
+  margin: auto;
+  background-color: yellow;
 }
