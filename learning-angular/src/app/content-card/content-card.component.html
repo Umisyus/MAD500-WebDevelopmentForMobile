@@ -1,20 +1,16 @@
-<h2>
-  Contents of List
-</h2>
+<div class="contentWrapper">
+  <div class="content-card">
+  </div>
 
-<ul *ngFor="let content of _getContent_List.contentArray">
+  <h2>
+    ID: {{contents.id}} <br>
+  </h2>
 
+  <h2>Author:  {{contents.author}} </h2>
+  <h2> Title:     {{contents.title}}</h2>
+  <h2>Content Body:  {{contents.body}}<br></h2>
+  <h2>Type:     {{contents.type}}<br></h2>
+  <img class="content-image" src="{{contents.imgUrl}}" (click)="imgClicked()" alt="Image of {{contents.title}}">
+  <h2>Tags:     {{contents.tags}}</h2>
 
-  <li>
-    ID: {{content.id}} <br>
-    Author:  {{content.author}} <br>
-    Title:     {{content.title}}<br>
-    Content Body:  {{content.body}}<br>
-    Type:     {{content.type}}<br>
-    Image URL:     {{content.imgUrl}}<br>
-    Tags:     {{content.tags}}
-  </li>
-
-
-</ul>
-
+</div>

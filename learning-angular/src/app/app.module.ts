@@ -3,11 +3,13 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ContentCardComponent} from './content-card/content-card.component';
+import { ContentListComponent } from './content-list-component/content-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentCardComponent
+    ContentListComponent,
+    ContentCardComponent,
   ],
   imports: [
     BrowserModule
@@ -17,7 +19,7 @@ import {ContentCardComponent} from './content-card/content-card.component';
    // ADD MY COMPONENT HERE
    *
    * */
-  exports: [ContentCardComponent],
+  exports: [],
 
   /*
   * For some reason, building causes an error about component not being an NgModule and
@@ -25,7 +27,7 @@ import {ContentCardComponent} from './content-card/content-card.component';
   * */
 
   providers: [],
-  bootstrap: [AppComponent, ContentCardComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

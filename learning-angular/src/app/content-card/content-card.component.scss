@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.content-card {
+  width: 50%;
+  height: 5%;
+  border: #000000 12px;
+  border-bottom-style: dot-dash;
+  background-color: blue;
+}
+
+:host.isFirst{
+  color: dodgerblue;
+}
+
+.contentWrapper {
+color: black;
+}

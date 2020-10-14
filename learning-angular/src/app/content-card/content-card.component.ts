@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ContentList} from "../helper-files/Content_List";
+import {Component, Input, OnInit} from '@angular/core';
+import {Content} from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-content-card',
@@ -8,7 +8,17 @@ import {ContentList} from "../helper-files/Content_List";
   // template:''
 })
 
-export class ContentCardComponent {
-  public _getContent_List: ContentList = new ContentList();
+export class ContentCardComponent implements OnInit {
+
+  @Input() contents: Content;
+  imgClicked = () => {
+    console.log("image of " + this.contents.title + " was clicked!")
+  };
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
 
 }
