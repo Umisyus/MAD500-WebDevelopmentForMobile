@@ -11,8 +11,12 @@ import {Content} from "../helper-files/content-interface";
 export class ContentCardComponent implements OnInit {
 
   @Input() contents: Content;
-  imgClicked = () => {
-    console.log("image of " + this.contents.title + " was clicked!")
+  imgClicked = (aElement) => {
+
+    console.log("image of " + this.contents.title + " was clicked!");
+    if (aElement.valueOf() === this.contents.imgUrl) {
+      console.log("This image is from: " + this.contents.imgUrl)
+    }
   };
 
   constructor() {

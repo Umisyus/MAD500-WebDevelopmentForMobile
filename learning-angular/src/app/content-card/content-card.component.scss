@@ -1,30 +1,20 @@
-:host {
-  display: block;
-}
+/*DEFAULT CONTENT CARD STYLES*/
 
 .content-card {
-  width: 50%;
-  height: 5%;
-  border: #000000 12px;
-  border-bottom-style: dot-dash;
-  background-color: blue;
+
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+
+  background-color: rgba(120, 120, 120, 1);
+  word-break: break-word;
+
+  margin: auto;
+  padding: 5%;
 }
 
 img {
-  margin: auto;
-  width: 100%;
-}
-
-:host.isFirst {
-  color: dodgerblue;
-}
-
-.contentWrapper {
-  flex: auto;
-  justify-content: center;
-  justify-items: center;
-  justify-self: center;
   width: 50%;
   margin: auto;
-  background-color: yellow;
 }
+

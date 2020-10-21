@@ -1,6 +1,22 @@
-:host {
+/*changes the styles of the cards rendered */
+.isFirst {
+  color: red;
 }
 
-.isFirst{
-color: aqua;
-  }
+.actionMovie {
+  font-family: cursive;
+  color: gold;
+}
+
+.adventureMovie{
+  color: dodgerblue;
+}
+
+.contentWrapper {
+  flex: auto;
+  justify-content: center;
+  margin: auto;
+  border: 5px dashed gold;
+}
+
+

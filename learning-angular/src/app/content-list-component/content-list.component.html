@@ -1,4 +1,24 @@
-<app-content-card *ngFor="let item of contents; first as isFirst" [contents]="item" class="content-card{{item.id}}"
-                  [class.isFirst]="isFirst">
-</app-content-card>
+<div class="contentWrapper">
+  <ng-form>
+
+    <label>
+      <input #query (submit)="onSearch(query.value)" placeholder="Enter a movie name to search:"
+             value=""/>
+
+      <button (submit)="onSearch(query.value.toString())">SEARCH</button>
+      <input type="submit" value="Submit" (click)="onSearch(query.value.toString())">
+    </label>
+  </ng-form>
+  <!--For every movie type "action", apply the "actionMovie" class-->
+  <app-content-card *ngFor="let item of contents;  first as isFirst" [contents]="item" class="content-card{{item.id}}"
+                    [class.isFirst]="isFirst"
+                    [class.actionMovie]="types.action">
+  </app-content-card>
+
+  <!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
+  <app-content-card *ngFor="let item of contents" [contents]="item" class="content-card{{item.id}}"
+                    [class.adventureMovie]="types.adventure">
+  </app-content-card>
+
+</div>
 
