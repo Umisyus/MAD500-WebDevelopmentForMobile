@@ -5,12 +5,13 @@ import {AppComponent} from './app.component';
 import {ContentCardComponent} from './content-card/content-card.component';
 import { ContentListComponent } from './content-list-component/content-list.component';
 import {FormsModule} from "@angular/forms";
-
+import {MoviesFilter} from "./moviesFilter.pipe"
 @NgModule({
   declarations: [
     AppComponent,
     ContentListComponent,
     ContentCardComponent,
+    MoviesFilter
   ],
   imports: [
     BrowserModule,

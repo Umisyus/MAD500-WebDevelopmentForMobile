@@ -23,17 +23,6 @@ export class ContentListComponent implements OnInit {
 
   onSearch(query: String) {
 
-    // if (this.contents.find(value => {
-    //   value.title === query.toString();
-    //   let message = `FOUND ${value.title}!`;
-    //   console.log(message);
-    //   alert(message)
-    // })) {
-    //
-    //
-    // } else {
-    //   alert("GOT NOTHING!")
-    // }
     /*Search array with find*/
     let found = this.contents.find(value => {
       return value.title.toLowerCase() === query.toString().toLowerCase();
@@ -54,8 +43,7 @@ export class ContentListComponent implements OnInit {
       body: "James Bond, an undercover agent, sets out to prevent a media baron, Elliot Carver, from waging a war between China and the United Kingdom after he is summoned by the Secret Intelligence Service." +
         "James Bond enter the most dangerous mission for an MI-6 Agent",
       id: 0x07,
-      imgUrl: "https://upload.wikimedia.org/wikipedia/en/b/b3/Tomorrow_Never_Dies_%28UK_cinema_poster%29.jpg",
-
+      imgUrl: "https://upload.0x07wikimedia.org/wikipedia/en/b/b3/Tomorrow_Never_Dies_%28UK_cinema_poster%29.jpg",
       tags: ["Action", "Adventure", "Shooting", "Spies"],
       title: "Tomorrow Never Dies",
       type: this.types.adventure
@@ -84,20 +72,6 @@ export class ContentListComponent implements OnInit {
       title: "From Russia with Love (1963)",
       type: this.types.action,
     });
-
-    // for (let i = 0; i < 5; i++) {
-    //
-    //   this.contents.push({
-    //     author: "Author " + i,
-    //     body: "" + i,
-    //     id: i,
-    //     imgUrl: "https://picsum.photos/200/300",
-    //     // imgUrl: "https://upload.wikimedia.org/wikipedia/commons/5/54/Modern_Warfare_2_Logo.jpg",
-    //     tags: ["" + i, "" + i, "" + i],
-    //     title: "" + i,
-    //     type: "" + i
-    //   });
-    // }
   }
 
 }

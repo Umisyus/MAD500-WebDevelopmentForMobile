@@ -1,17 +1,23 @@
 <!--<div class="contentWrapper">-->
 
   <div class="content-card">
-    <h2>
+    <h2 *ngIf="contents.id">
       ID: {{contents.id}} <br>
     </h2>
 
-    <h2>Author:  {{contents.author}} </h2>
-    <img class="content-image" src="{{contents.imgUrl}}" (click)="imgClicked(contents.imgUrl)"
-         alt="Image of {{contents.title}}">
-    <h2> Title:     {{contents.title}}</h2>
-    <h2>Content Body:  {{contents.body}}<br></h2>
-    <h2>Type:     {{contents.type}}<br></h2>
-    <h2>Tags:     {{contents.tags}}</h2>
+    <h2 *ngIf="contents.author">Author:  {{contents.author}} </h2>
+
+    <div *ngIf="contents.imgUrl">
+      <img class="content-image" src="{{contents.imgUrl }}"
+        (click)="imgClicked(contents.imgUrl)"
+        alt="Image of {{contents.title}}">
+      <img alt="Image not found!" src="../images/picture.png" content="Image from https://www.flaticon.com/free-icon/picture_122130">
+    </div>
+
+    <h2 *ngIf="contents.title"> Title:     {{contents.title}}</h2>
+    <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>
+    <h2 *ngIf="contents.type">Type:     {{contents.type}}<br></h2>
+    <h2 *ngIf="contents.tags">Tags:     {{contents.tags}}</h2>
 
   </div>
 <!--</div>-->
