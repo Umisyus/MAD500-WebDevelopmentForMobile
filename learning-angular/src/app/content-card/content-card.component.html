@@ -19,7 +19,7 @@
   <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>
   <h2 *ngIf="contents.type">Type:     {{contents.type}}<br></h2>
 
-  <ul *ngIf="contents.tags">
+  <ul class="tags-list" *ngIf="contents.tags">
     Tags:
     <li class="tags" *ngFor="let tag of contents.tags">
       <div appHoverStyle='font-weight: bold'>{{tag}}</div>
