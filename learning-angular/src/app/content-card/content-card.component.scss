@@ -6,15 +6,17 @@
   flex-flow: column;
   align-content: center;
 
-  background-color: rgba(120, 120, 120, 1);
   word-break: break-word;
+  text-align: center;
 
   margin: auto;
   padding: 5%;
+  height: 10%;
+  width: 75%;
+  font-weight: normal;
 }
 
 img {
   width: 50%;
   margin: auto;
 }
-

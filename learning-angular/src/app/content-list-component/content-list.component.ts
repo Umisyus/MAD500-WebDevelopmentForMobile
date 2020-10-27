@@ -43,7 +43,7 @@ export class ContentListComponent implements OnInit {
       body: "James Bond, an undercover agent, sets out to prevent a media baron, Elliot Carver, from waging a war between China and the United Kingdom after he is summoned by the Secret Intelligence Service." +
         "James Bond enter the most dangerous mission for an MI-6 Agent",
       id: 0x07,
-      imgUrl: "https://upload.0x07wikimedia.org/wikipedia/en/b/b3/Tomorrow_Never_Dies_%28UK_cinema_poster%29.jpg",
+      // imgUrl: "https://upload.0x07wikimedia.org/wikipedia/en/b/b3/Tomorrow_Never_Dies_%28UK_cinema_poster%29.jpg",
       tags: ["Action", "Adventure", "Shooting", "Spies"],
       title: "Tomorrow Never Dies",
       type: this.types.adventure

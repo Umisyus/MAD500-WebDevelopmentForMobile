@@ -2,21 +2,23 @@
 
   <label>
     Search for a Movie
-    <input #query value="" placeholder="Enter a movie to search for:" >
+    <input #query value="" placeholder="Enter a movie to search for:">
   </label>
 
   <input type="submit">
 
 </form>
+<div class="contentWrapper">
 
-<!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
-<app-content-card *ngFor="let item of contents | moviesFilter:'adventureMovie'" [contents]="item"
-                  class="content-card{{item.id}} adventureMovie">
-</app-content-card>
+  <!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
+  <app-content-card  *ngFor="let item of contents | moviesFilter:'adventureMovie'"
+                    [contents]="item"
+                    class="content-card{{item.id}} adventureMovie">
+  </app-content-card>
 
-<!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
-<app-content-card *ngFor="let item of contents | moviesFilter:'actionMovie'" [contents]="item"
-                  class="content-card{{item.id}} actionMovie">
-</app-content-card>
+  <!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
+  <app-content-card *ngFor="let item of contents | moviesFilter:'actionMovie'" [contents]="item"
+                    class="content-card{{item.id}} actionMovie">
+  </app-content-card>
 
-
+</div>

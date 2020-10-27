@@ -1,23 +1,29 @@
-<!--<div class="contentWrapper">-->
+<div class="content-card">
+  <h2 *ngIf="contents.id">
+    ID: {{contents.id}} <br>
+  </h2>
 
-  <div class="content-card">
-    <h2 *ngIf="contents.id">
-      ID: {{contents.id}} <br>
-    </h2>
 
-    <h2 *ngIf="contents.author">Author:  {{contents.author}} </h2>
-
-    <div *ngIf="contents.imgUrl">
-      <img class="content-image" src="{{contents.imgUrl }}"
-        (click)="imgClicked(contents.imgUrl)"
-        alt="Image of {{contents.title}}">
-      <img alt="Image not found!" src="../images/picture.png" content="Image from https://www.flaticon.com/free-icon/picture_122130">
-    </div>
-
-    <h2 *ngIf="contents.title"> Title:     {{contents.title}}</h2>
-    <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>
-    <h2 *ngIf="contents.type">Type:     {{contents.type}}<br></h2>
-    <h2 *ngIf="contents.tags">Tags:     {{contents.tags}}</h2>
-
+  <div *ngIf="contents.imgUrl">
+    <img class="content-image" src="{{contents.imgUrl }}" (click)="imgClicked(contents.imgUrl)"
+         alt="Image of {{contents.title}}">
   </div>
-<!--</div>-->
+  <div *ngIf="!contents.imgUrl">
+    <img src="https://www.flaticon.com/svg/static/icons/svg/122/122130.svg"
+         alt="Image from https://www.flaticon.com/free-icon/picture_122130">
+  </div>
+
+
+  <h2 *ngIf="contents.title" appHoverStyle="'gold'" class="cardTitle">
+    Title:     {{contents.title}}</h2>
+  <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>
+  <h2 *ngIf="contents.type">Type:     {{contents.type}}<br></h2>
+
+  <ul *ngIf="contents.tags">
+    Tags:
+    <li class="tags" *ngFor="let tag of contents.tags">
+      <div appHoverStyle='font-weight: bold'>{{tag}}</div>
+    </li>
+  </ul>
+
+</div>
