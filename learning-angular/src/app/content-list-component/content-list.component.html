@@ -11,8 +11,9 @@
 <div class="contentWrapper">
 
   <!--For every movie of the "adventure" type, apply the "adventureMovie" class-->
+<div ></div>
   <app-content-card  *ngFor="let item of contents | moviesFilter:'adventureMovie'"
-                    [contents]="item"
+                     [contents]="item"
                     class="content-card{{item.id}} adventureMovie">
   </app-content-card>
 
