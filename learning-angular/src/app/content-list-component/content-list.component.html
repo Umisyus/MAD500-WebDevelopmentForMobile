@@ -1,3 +1,5 @@
+<app-create-content (newMovie)="onNewMovieEvent($event)"></app-create-content>
+
 <form (ngSubmit)="onSearch(query.value) ">
 
   <label>
@@ -18,5 +20,10 @@
 <app-content-card *ngFor="let item of contents | moviesFilter:'actionMovie'" [contents]="item"
                   class="content-card{{item.id}} actionMovie">
 </app-content-card>
+
+<app-content-card *ngFor="let item of contents " [contents]="item"
+                  class="content-card{{item.id}} actionMovie">
+</app-content-card>
+
 
 

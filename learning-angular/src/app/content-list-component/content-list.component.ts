@@ -19,7 +19,7 @@ export class ContentListComponent implements OnInit {
 
   @Input('query')
 
-  query: String;
+  // query: String;
 
   onSearch(query: String) {
 
@@ -34,6 +34,27 @@ export class ContentListComponent implements OnInit {
       /*Print that it is not found*/
       alert(`${query} not found... :(`)
     }
+  }
+
+  onNewMovieEvent(newMoviePromise: Promise<Content>) {
+    newMoviePromise.then(value => {
+      console.log(value);
+// Get latest ID
+
+      // let latestID: number = this.contents.map(value1 => value1.id).filter((value1, index) => value1 > this.contents[index].id)[0];
+      console.log(` ID FOR LAST ITEM IS: ${this.contents[this.contents.length - 1].id}`);
+
+      let lastID = this.contents[this.contents.length - 1].id;
+
+      value.id = lastID + 1;
+
+      console.log(lastID + 1);
+
+      console.log(value);
+      // Add content from promise
+      this.contents.push(value)
+
+    }).catch(console.log)
   }
 
   ngOnInit(): void {

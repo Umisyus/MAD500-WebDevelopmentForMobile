@@ -3,25 +3,29 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ContentCardComponent} from './content-card/content-card.component';
-import { ContentListComponent } from './content-list-component/content-list.component';
+import {ContentListComponent} from './content-list-component/content-list.component';
 import {FormsModule} from "@angular/forms";
-import {MoviesFilter} from "./moviesFilter.pipe"
+import {MoviesFilter} from "./moviesFilter.pipe";
+import {CreateContentComponent} from './create-content/create-content.component'
+
 @NgModule({
   declarations: [
+    /**
+     *
+     // ADD MY COMPONENT HERE
+     *
+     * */
     AppComponent,
     ContentListComponent,
     ContentCardComponent,
-    MoviesFilter
+    MoviesFilter,
+    CreateContentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  /**
-   *
-   // ADD MY COMPONENT HERE
-   *
-   * */
+
   exports: [],
 
   /*
@@ -34,3 +38,4 @@ import {MoviesFilter} from "./moviesFilter.pipe"
 })
 export class AppModule {
 }
+

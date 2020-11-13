@@ -8,10 +8,13 @@
     <h2 *ngIf="contents.author">Author:  {{contents.author}} </h2>
 
     <div *ngIf="contents.imgUrl">
-      <img class="content-image" src="{{contents.imgUrl }}"
-        (click)="imgClicked(contents.imgUrl)"
-        alt="Image of {{contents.title}}">
-      <img alt="Image not found!" src="../images/picture.png" content="Image from https://www.flaticon.com/free-icon/picture_122130">
+      <img class="content-image" src="{{contents.imgUrl }}" (click)="imgClicked(contents.imgUrl)"
+           alt="Image of {{contents.title}}">
+      <!--HOW TO DO ELSE?-->
+      <img src="https://www.flaticon.com/free-icon/picture_122130"
+           alt="">
+      <!--           alt="Image from https://www.flaticon.com/free-icon/picture_122130"-->
+
     </div>
 
     <h2 *ngIf="contents.title"> Title:     {{contents.title}}</h2>
