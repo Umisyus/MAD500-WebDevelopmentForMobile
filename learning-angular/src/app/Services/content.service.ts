@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 
 import {Observable, of} from 'rxjs';
-import {Content} from "../helper-files/content-interface";
 import {contents} from "../helper-files/contentDB";
+import {Content} from "../helper-files/content-interface";
+import {MessageService} from "./message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,27 +11,23 @@ import {contents} from "../helper-files/contentDB";
 
 export class ContentService {
   contents: Content[] = [];
+  messages: string[] = [];
 
-  constructor() {
+  constructor(private messageService: MessageService) {
   }
 
-  addMovies(mov: Content): void {
-    this.contents.push(mov);
-  }
-
-  // Not needed
-  // getMovies(): Content[] { // synchronous
-  //   return contents;
+  // addMovies(mov: Content): void {
+  //   this.contents.push(mov);
   // }
-
-  clear() {
-    this.contents = [];
-  }
+  //
+  // clearMovies() {
+  //   this.contents = [];
+  //
 
   getMoviesObs(): Observable<Content[]> { // asynchronous
-
     /*Write a message on retrieval*/
-    
+    this.messageService.add("Retrieved content!");
+    // Observable of contents (movies)
     return of(contents);
   }
 }

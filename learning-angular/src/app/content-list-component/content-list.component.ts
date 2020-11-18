@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ContentService} from "../Services/content.service";
+import {MessageService} from "../Services/message.service";
 
 @Component({
   selector: 'app-content-list-component',
@@ -39,14 +40,16 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    for (const content of this.contents) {
+    this.getMovies();
+  }
 
-      this.contentService.addMovies(content);
-      console.log(`Movie added!`)
-    }
-
+  getMovies() {
     this.contentService.getMoviesObs().subscribe(value => {
-      return this.contents = value;
+
+      /*TEMP*/
+      // console.log(value);
+      this.contents = value;
     })
   }
+
 }
