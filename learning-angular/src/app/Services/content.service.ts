@@ -7,16 +7,30 @@ import {contents} from "../helper-files/contentDB";
 @Injectable({
   providedIn: 'root'
 })
+
 export class ContentService {
+  contents: Content[] = [];
 
   constructor() {
   }
 
-  getGames(): Content[] { // synchronous
-    return contents;
+  addMovies(mov: Content): void {
+    this.contents.push(mov);
   }
 
-  getGamesObs(): Observable<Content[]> { // asynchronous
+  // Not needed
+  // getMovies(): Content[] { // synchronous
+  //   return contents;
+  // }
+
+  clear() {
+    this.contents = [];
+  }
+
+  getMoviesObs(): Observable<Content[]> { // asynchronous
+
+    /*Write a message on retrieval*/
+    
     return of(contents);
   }
 }

@@ -10,7 +10,6 @@ import {ContentService} from "../Services/content.service";
 
 export class ContentListComponent implements OnInit {
 
-
   contents: Content[] = [];
 
   types = {action: "actionMovie", adventure: "adventureMovie"};
@@ -40,6 +39,14 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contentService.getGamesObs().subscribe(value => this.contents = value)
+    for (const content of this.contents) {
+
+      this.contentService.addMovies(content);
+      console.log(`Movie added!`)
+    }
+
+    this.contentService.getMoviesObs().subscribe(value => {
+      return this.contents = value;
+    })
   }
 }
