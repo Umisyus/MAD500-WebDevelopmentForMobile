@@ -6,8 +6,10 @@ import {Content} from "../helper-files/content-interface";
 @Component({
   selector: "app-add-content",
   templateUrl: "./add-content-dialog-button.html",
-  styleUrls: ["./add-content.component.scss"]
+  styleUrls: ["./add-content.component.css",
+    "./dialog-styles.css"],
 })
+
 export class AddContentComponent implements OnInit {
   @Output() newGameEvent = new EventEmitter<Content>();
   @Output() updateGameEvent = new EventEmitter<string>();
@@ -20,7 +22,12 @@ export class AddContentComponent implements OnInit {
   ) {
     this.newGame = {
       title: "",
-      imageUrl: ""
+      body: "",
+      imgUrl: "",
+      author: "",
+      id: 1234,
+      tags: ["Action","Adventure"],
+      type: "actionMovie"
     };
   }
 
@@ -29,11 +36,16 @@ export class AddContentComponent implements OnInit {
   }
 
   openMovieDialog(): void {
-    const gameDialogRef = this.dialog.open(AddContentDialog);
+    const gameDialogRef = this.dialog.open(AddContentDialog, {width: '400px'});
 
     gameDialogRef.afterClosed().subscribe(newGameFromDialog => {
       this.newGame = newGameFromDialog;
+
+      console.log(this.newGame.title.toUpperCase());
+
       if (this.newGame) {
+
+        console.log("MOVIE ADDED: " + newGameFromDialog);
         this.addGame();
       }
     });
@@ -64,7 +76,12 @@ export class AddContentDialog {
   constructor(public dialogRef: MatDialogRef<AddContentDialog>) {
     this.movie = {
       title: "",
-      imageUrl: ""
+      body: "",
+      imgUrl: "",
+      author: "",
+      id: 1234,
+      tags: ["Action","Adventure"],
+      type: "actionMovie"
     };
   }
 

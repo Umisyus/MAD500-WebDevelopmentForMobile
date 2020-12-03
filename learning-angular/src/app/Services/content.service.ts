@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 
 import {Observable, of} from 'rxjs';
-import {contents} from "../helper-files/contentDB";
 import {Content} from "../helper-files/content-interface";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
@@ -20,7 +19,7 @@ export class ContentService {
   constructor(private http: HttpClient) {
   }
 
-  getMovies(): Observable<Content[]> {
+  getMoviesObs(): Observable<Content[]> {
     return this.http.get<Content[]>(this.url);
   }
 
@@ -28,10 +27,11 @@ export class ContentService {
     return this.http.post<Content>(this.url, movie, this.httpOptions);
   }
 
-  getMoviesObs(): Observable<Content[]> { // asynchronous
-    /*Write a message on retrieval*/
-    // this.messageService.add("Retrieved content!");
-    // Observable of contents (movies)
-    return of(contents);
-  }
+  // getMoviesObs(): Observable<Content[]> { // asynchronous
+  //   /*Write a message on retrieval*/
+  //   // this.messageService.add("Retrieved content!");
+  //   // Observable of contents (movies)
+  //   return of(contents);
+  // }
+
 }

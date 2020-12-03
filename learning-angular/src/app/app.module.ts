@@ -15,6 +15,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from "./Services/InMemoryDataStore";
 
 @NgModule({
   declarations: [
@@ -31,12 +33,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   imports: [
     BrowserModule,
     FormsModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {
+        dataEncapsulation: false,
+        delay: 1000
+      }),
+    HttpClientInMemoryWebApiModule
   ],
   /**
    *

@@ -1,5 +1,5 @@
-<!--<h1 mat-dialog-title>Add Content</h1>-->
-<!--<div mat-dialog-content>-->
+<h1 mat-dialog-title>Add Content</h1>
+<div mat-dialog-content>
   <mat-form-field>
     <mat-label>Id</mat-label>
     <input matInput [(ngModel)]="movie.id" />
@@ -20,8 +20,8 @@
     <mat-label>Image URL</mat-label>
     <input matInput [(ngModel)]="movie.imgUrl" /><br /><br />
   </mat-form-field><br>
-<!--</div>-->
-<!--<div mat-dialog-actions>-->
-<!--  <button mat-button (click)="onNoClick()">Cancel</button>-->
-<!--  <button mat-button (click)="onNoClick()">Add Content!</button>-->
-<!--</div>-->
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="movie">Add a New Movie!</button>  </div>
+</div>
