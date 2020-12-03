@@ -11,21 +11,21 @@ import {Content} from "../helper-files/content-interface";
 })
 
 export class AddContentComponent implements OnInit {
-  @Output() newGameEvent = new EventEmitter<Content>();
-  @Output() updateGameEvent = new EventEmitter<string>();
+  @Output() newMovieEvent = new EventEmitter<Content>();
+  @Output() updateMovieEvent = new EventEmitter<string>();
 
-  newGame: any;
+  newMovie: any;
 
   constructor(
     private contentService: ContentService,
     public dialog: MatDialog
   ) {
-    this.newGame = {
+    this.newMovie = {
       title: "",
       body: "",
       imgUrl: "",
       author: "",
-      id: 1234,
+      id: null,
       tags: ["Action","Adventure"],
       type: "actionMovie"
     };
@@ -39,11 +39,11 @@ export class AddContentComponent implements OnInit {
     const gameDialogRef = this.dialog.open(AddContentDialog, {width: '400px'});
 
     gameDialogRef.afterClosed().subscribe(newGameFromDialog => {
-      this.newGame = newGameFromDialog;
+      this.newMovie = newGameFromDialog;
 
-      console.log(this.newGame.title.toUpperCase());
+      console.log(this.newMovie.title.toUpperCase());
 
-      if (this.newGame) {
+      if (this.newMovie) {
 
         console.log("MOVIE ADDED: " + newGameFromDialog);
         this.addGame();
@@ -52,13 +52,13 @@ export class AddContentComponent implements OnInit {
   }
 
   addGame(): void {
-    let newGameFromServer: Content;
-    console.log("Trying to add the game to the list", this.newGame);
-    this.contentService.addMovie(this.newGame).subscribe(serverGame => {
-      console.log("Added the game to the list", serverGame);
+    let content: Content;
+    console.log("Trying to add the game to the list", this.newMovie);
+    this.contentService.addMovie(this.newMovie).subscribe(newMovie => {
+      console.log("Added the game to the list", newMovie);
       // this.contentService.getGames().subscribe(games => console.log(games));
-      newGameFromServer = serverGame;
-      this.newGameEvent.emit(newGameFromServer);
+      content = newMovie;
+      this.newMovieEvent.emit(content);
     });
 
     // console.log('Event Emitted!', this.newGame.title);
@@ -79,7 +79,7 @@ export class AddContentDialog {
       body: "",
       imgUrl: "",
       author: "",
-      id: 1234,
+      id: null,
       tags: ["Action","Adventure"],
       type: "actionMovie"
     };

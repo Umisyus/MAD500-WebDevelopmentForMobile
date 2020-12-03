@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Content} from "../helper-files/content-interface";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
@@ -24,6 +24,7 @@ export class ContentService {
   }
 
   addMovie(movie: Content): Observable<Content> {
+    console.log(`ContentService: => Added movie: ${movie.title} to Web API!`);
     return this.http.post<Content>(this.url, movie, this.httpOptions);
   }
 
