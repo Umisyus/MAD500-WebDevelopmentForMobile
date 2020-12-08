@@ -9,18 +9,25 @@
   word-break: break-word;
   text-align: center;
 
-  margin: auto;
+  margin:auto;
   padding: 5%;
-  height: 10%;
   width: 50%;
+
   font-weight: normal;
+  background-color: black;
+  border-radius: 15px;
+  color: white;
+
 }
 
 img {
   width: 50%;
   margin: auto;
+ background-color: white;
 }
 
 .tags-list {
+  align-self: center;
   list-style-type: none;
 }
+

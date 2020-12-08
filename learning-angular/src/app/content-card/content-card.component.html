@@ -3,20 +3,21 @@
     ID: {{contents.id}} <br>
   </h2>
 
-
+  <!--// Try to display movie cover-->
   <div *ngIf="contents.imgUrl">
     <img class="content-image" src="{{contents.imgUrl }}" (click)="imgClicked(contents.imgUrl)"
          alt="Image of {{contents.title}}">
   </div>
+
+  <!--  // Display missing image by default-->
   <div *ngIf="!contents.imgUrl">
     <img src="https://www.flaticon.com/svg/static/icons/svg/122/122130.svg"
          alt="Image from https://www.flaticon.com/free-icon/picture_122130">
   </div>
 
-
   <h2 *ngIf="contents.title" appHoverStyle="'gold'" class="cardTitle">
     Title:     {{contents.title}}</h2>
-  <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>
+  <!--  <h2 *ngIf="contents.body">Content Body:  {{contents.body}}<br></h2>-->
   <h2 *ngIf="contents.type">Type:     {{contents.type}}<br></h2>
 
   <ul class="tags-list" *ngIf="contents.tags">
@@ -25,5 +26,7 @@
       <div appHoverStyle='font-weight: bold'>{{tag}}</div>
     </li>
   </ul>
+
+  <a [routerLink]="['/content', contents.id ]" routerLinkActive="active">Go to Content {{contents.id}}</a>
 
 </div>

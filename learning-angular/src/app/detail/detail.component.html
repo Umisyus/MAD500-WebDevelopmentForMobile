@@ -1,0 +1,29 @@
+<div class="content-card">
+  <h2 *ngIf="movie.id">
+    ID: {{movie.id}} <br>
+  </h2>
+
+  <!--// Try to display movie cover-->
+  <div *ngIf="movie.imgUrl">
+    <img class="content-image" src="{{movie.imgUrl }}"
+         alt="Image of {{movie.title}}">
+  </div>
+
+  <!--  // Display missing image by default-->
+  <div *ngIf="!movie.imgUrl">
+    <img src="https://www.flaticon.com/svg/static/icons/svg/122/122130.svg"
+         alt="Image from https://www.flaticon.com/free-icon/picture_122130">
+  </div>
+
+  <h2 *ngIf="movie.title" appHoverStyle="'gold'" class="cardTitle">
+    Title: {{movie.title}}</h2>
+    <h2 *ngIf="movie.body">Content Body:  {{movie.body}}<br></h2>
+  <h2 *ngIf="movie.type">Type: {{movie.type}}<br></h2>
+
+  <ul class="tags-list" *ngIf="movie.tags">
+    Tags:
+    <li class="tags" *ngFor="let tag of movie.tags">
+      <div appHoverStyle='font-weight: bold'>{{tag}}</div>
+    </li>
+  </ul>
+</div>

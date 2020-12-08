@@ -5,6 +5,7 @@ import {Content} from "../helper-files/content-interface";
     selector: 'app-content-card',
     templateUrl: './content-card.component.html',
     styleUrls: ['./content-card.component.scss'],
+
     // template:''
 })
 

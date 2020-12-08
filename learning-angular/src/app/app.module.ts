@@ -17,6 +17,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./Services/InMemoryDataStore";
+import {DetailComponent} from './detail/detail.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -27,24 +30,37 @@ import {InMemoryDataService} from "./Services/InMemoryDataStore";
     HoverStyleDirective,
     MessageComponent,
     AddContentComponent,
-    AddContentDialog
+    AddContentDialog,
+    DetailComponent,
+    NotFoundComponent
   ],
 
   imports: [
-    BrowserModule,
-    FormsModule,
+    // Material UI Components
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+
+    // Browser dependencies
+    BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
+
+    // Networking, routing data storage modules
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {
         dataEncapsulation: false,
         delay: 1000
       }),
-    HttpClientInMemoryWebApiModule
+    HttpClientInMemoryWebApiModule,
+    RouterModule.forRoot([
+      {path: 'content/:id', component: DetailComponent},
+      {path: 'content', component: ContentListComponent},
+      {path: '**', component: NotFoundComponent}
+    ]),
+
   ],
   /**
    *
