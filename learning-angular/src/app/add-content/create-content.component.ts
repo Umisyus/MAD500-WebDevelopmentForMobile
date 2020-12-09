@@ -25,8 +25,8 @@ export class AddContentComponent implements OnInit {
       body: "",
       imgUrl: "",
       author: "",
-      id: null,
-      tags: ["Action","Adventure"],
+      // id: null,
+      tags: ["Action", "Adventure"],
       type: "actionMovie"
     };
   }
@@ -36,29 +36,25 @@ export class AddContentComponent implements OnInit {
   }
 
   openMovieDialog(): void {
-    const gameDialogRef = this.dialog.open(AddContentDialog, {width: '400px'});
-
+    const gameDialogRef = this.dialog.open(AddContentDialog, {
+      width: '400px'
+    });
     gameDialogRef.afterClosed().subscribe(newGameFromDialog => {
       this.newMovie = newGameFromDialog;
-
-      console.log(this.newMovie.title.toUpperCase());
-
       if (this.newMovie) {
-
-        console.log("MOVIE ADDED: " + newGameFromDialog);
         this.addGame();
       }
     });
   }
 
   addGame(): void {
-    let content: Content;
+    let contentFromServer: Content;
     console.log("Trying to add the game to the list", this.newMovie);
     this.contentService.addMovie(this.newMovie).subscribe(newMovie => {
       console.log("Added the game to the list", newMovie);
       // this.contentService.getGames().subscribe(games => console.log(games));
-      content = newMovie;
-      this.newMovieEvent.emit(content);
+      contentFromServer = newMovie;
+      this.newMovieEvent.emit(contentFromServer);
     });
 
     // console.log('Event Emitted!', this.newGame.title);
@@ -79,8 +75,8 @@ export class AddContentDialog {
       body: "",
       imgUrl: "",
       author: "",
-      id: null,
-      tags: ["Action","Adventure"],
+      // id: null,
+      tags: ["Action", "Adventure"],
       type: "actionMovie"
     };
   }

@@ -57,8 +57,8 @@ import {RouterModule} from "@angular/router";
     HttpClientInMemoryWebApiModule,
     RouterModule.forRoot([
       {path: 'content/:id', component: DetailComponent},
-      {path: 'content', component: ContentListComponent},
-      {path: '**', component: NotFoundComponent}
+      {path: 'content', component: ContentListComponent },
+      {path: '**', component: NotFoundComponent},
     ]),
 
   ],

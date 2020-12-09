@@ -24,7 +24,7 @@ export class ContentService {
   }
 
   addMovie(movie: Content): Observable<Content> {
-    console.log(`ContentService: => Added movie: ${movie.title} to Web API!`);
+    // console.log(`ContentService: => Added movie: ${movie.title} to Web API!`);
     return this.http.post<Content>(this.url, movie, this.httpOptions);
   }
 
@@ -32,7 +32,7 @@ export class ContentService {
     /*Write a message on retrieval*/
     // this.messageService.add("Retrieved content!");
     // Observable of contents (movies)
-    return this.http.get<Content>(this.url + id);
+    return this.http.get<Content>("api/movie/" + id);
   }
 
 }

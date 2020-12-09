@@ -27,6 +27,8 @@
     </li>
   </ul>
 
-  <a [routerLink]="['/content', contents.id ]" routerLinkActive="active">Go to Content {{contents.id}}</a>
+  <div *ngIf="contents.id">
+    <a [routerLink]="['/content', contents.id ]" routerLinkActive="active">Go to Content {{contents.id}}</a>
+  </div>
 
 </div>
