@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ContentService} from "../Services/content.service";
-import {MessageService} from "../Services/message.service";
+import {UpdateService} from "../Services/update.service";
 
 @Component({
   selector: 'app-content-list-component',
@@ -10,12 +10,11 @@ import {MessageService} from "../Services/message.service";
 })
 
 export class ContentListComponent implements OnInit {
-
   contents: Content[] = [];
 
   types = {action: "actionMovie", adventure: "adventureMovie"};
 
-  constructor(private contentService: ContentService) {
+  constructor(private contentService: ContentService, private updateSrvc: UpdateService) {
 
   }
 
@@ -40,16 +39,30 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.contents = [];
     this.getMovies();
   }
 
   getMovies() {
+
     this.contentService.getMoviesObs().subscribe(value => {
 
-      /*TEMP*/
-      // console.log(value);
       this.contents = value;
-    })
+
+      // Show update
+    });
   }
 
+  addToList(newMovie: Content): void {
+    this.contents.push(newMovie);
+    this.contents = Object.assign([], this.contents);
+    this.updateSrvc.onApplied();
+  }
+
+  newMovieEvent($event) {
+    this.updateSrvc.onUpdate();
+    this.addToList($event);
+
+  }
 }
+

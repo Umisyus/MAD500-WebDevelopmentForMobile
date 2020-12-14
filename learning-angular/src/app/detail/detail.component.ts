@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // Get the movie from the server
+    // Get the movie from the server, adding to ID because array is 0 index based
     this.route.paramMap.subscribe(param => this.id = +param.get('id'));
     // Get the movie
     this.content.getMovie(this.id).subscribe(value => this.movie = value);

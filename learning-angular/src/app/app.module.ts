@@ -20,6 +20,8 @@ import {InMemoryDataService} from "./Services/InMemoryDataStore";
 import {DetailComponent} from './detail/detail.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {RouterModule} from "@angular/router";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import {RouterModule} from "@angular/router";
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    MatSnackBarModule,
 
     // Browser dependencies
     BrowserModule,
@@ -54,12 +57,14 @@ import {RouterModule} from "@angular/router";
         dataEncapsulation: false,
         delay: 1000
       }),
+
     HttpClientInMemoryWebApiModule,
     RouterModule.forRoot([
       {path: 'content/:id', component: DetailComponent},
-      {path: 'content', component: ContentListComponent },
+      {path: 'content', component: ContentListComponent},
       {path: '**', component: NotFoundComponent},
     ]),
+    MatRadioModule,
 
   ],
   /**

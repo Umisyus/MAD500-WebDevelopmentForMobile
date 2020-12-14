@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Input, OnInit} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
   selector: '[appHoverStyle]'
@@ -17,7 +17,7 @@ export class HoverStyleDirective {
 
     this.elementRef.nativeElement.style.fontWeight = 'bold';
 
-    console.log(`You are hovering: ${document.querySelector(this.elementRef.nativeElement[0].className)}`);
+    // console.log(`You are hovering: ${document.querySelector(this.elementRef.nativeElement[0].className)}`);
 
   };
 
@@ -27,6 +27,6 @@ export class HoverStyleDirective {
     this.elementRef.nativeElement.style.color = '';
     this.elementRef.nativeElement.style.fontWeight = '';
 
-    console.log(`You have stopped hovering: ${this.elementRef.nativeElement.toString()}!`);
+    // console.log(`You have stopped hovering: ${this.elementRef.nativeElement.toString()}!`);
   };
 }

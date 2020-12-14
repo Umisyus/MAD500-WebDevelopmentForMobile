@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import {ContentService} from "../Services/content.service";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Content} from "../helper-files/content-interface";
+import {contents} from "../helper-files/contentDB";
 
 @Component({
   selector: "app-add-content",
@@ -11,7 +12,9 @@ import {Content} from "../helper-files/content-interface";
 })
 
 export class AddContentComponent implements OnInit {
-  @Output() newMovieEvent = new EventEmitter<Content>();
+
+  @Output() newMovieEvent = new EventEmitter<any>();
+
   @Output() updateMovieEvent = new EventEmitter<string>();
 
   newMovie: any;
@@ -23,11 +26,11 @@ export class AddContentComponent implements OnInit {
     this.newMovie = {
       title: "",
       body: "",
-      imgUrl: "",
+      // imgUrl: "",
       author: "",
       // id: null,
-      tags: ["Action", "Adventure"],
-      type: "actionMovie"
+      // tags: ["Action", "Adventure"],
+      // type: "actionMovie"
     };
   }
 
@@ -55,6 +58,7 @@ export class AddContentComponent implements OnInit {
       // this.contentService.getGames().subscribe(games => console.log(games));
       contentFromServer = newMovie;
       this.newMovieEvent.emit(contentFromServer);
+
     });
 
     // console.log('Event Emitted!', this.newGame.title);
@@ -73,11 +77,11 @@ export class AddContentDialog {
     this.movie = {
       title: "",
       body: "",
-      imgUrl: "",
+      // imgUrl: "",
       author: "",
       // id: null,
-      tags: ["Action", "Adventure"],
-      type: "actionMovie"
+      // tags: ["Action", "Adventure"],
+      // type: "actionMovie"
     };
   }
 

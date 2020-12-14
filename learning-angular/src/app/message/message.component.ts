@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Content} from "../helper-files/content-interface";
-import {ContentService} from "../Services/content.service";
 import {MessageService} from "../Services/message.service";
 
 @Component({
@@ -8,6 +6,7 @@ import {MessageService} from "../Services/message.service";
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss']
 })
+
 export class MessageComponent implements OnInit {
   messages: string[];
 
