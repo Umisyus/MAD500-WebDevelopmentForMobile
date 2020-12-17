@@ -1,3 +1,11 @@
 import {ItemModel} from './itemModel';
 
-export const ITEMS_LIST: ItemModel[] = [];
+export let ITEMS_LIST: ItemModel[] = [
+  {
+    id: 0,
+    title: '',
+    description: '',
+    dateAdded: Date.now().toString(),
+    imageURL: '',
+
+  }];

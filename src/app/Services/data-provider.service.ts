@@ -25,7 +25,10 @@ export class DataProviderService {
   getAllItems = () => this.http.get<ItemModel[]>(this.url);
 
   // Adds an item the content array
-  addItem = (item: ItemModel) => this.http.post<ItemModel>(this.url, item, this.httpOptions);
+  addItem = (item: ItemModel) => {
+    console.log(`Got a new Item: ${item.title}`);
+    return this.http.post<ItemModel>(this.url, item, this.httpOptions);
+  };
 
   // Gets an item based on it's ID
   getItem = (id: number): Observable<ItemModel> => this.http.get<ItemModel>('api/item/' + id);

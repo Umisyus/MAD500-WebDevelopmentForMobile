@@ -1,1 +1,17 @@
 <p>home-page works!</p>
+
+<div class="mat-toolbar">
+  <button mat-raised-button>
+    <a routerLink="/add" routerLinkActive="active" (click)="openAddDialog()">
+      Add an Item
+    </a>
+  </button>
+  <button mat-flat-button color="primary" (click)="openAddDialog()">Add a new item</button>
+
+  <button mat-raised-button>
+    <a routerLink="/items" routerLinkActive="active">
+      View Item List
+    </a>
+  </button>
+</div>
+

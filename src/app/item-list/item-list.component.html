@@ -1,14 +1,27 @@
-<router-outlet routerLink="active"></router-outlet>
+<button mat-raised-button>
+  <a routerLink="" routerLinkActive="active">
+    GO TO HOME
+  </a>
+</button>
+
+HELLO!
 
 <div class="mat-list-base">
   <!-- The item list -->
-  <mat-card class="mat-list-item" *ngFor="let item of items;">
-    Title:{{item.title}}
+  <div *ngIf="items else elseBlock" class="">
 
-    <div *ngIf="item.id">
-      <a [routerLink]="['/items', item.id ]" routerLinkActive="active"> View details</a>
-    </div>
-
-  </mat-card>
+    <mat-card class="mat-list-item" *ngFor="let item of items;">
+      Title:{{item.title}}
+      Date: {{item.dateAdded}}
+      <div *ngIf="item.id">
+        <a [routerLink]="['id/', item.id ]" routerLinkActive="active">View details</a>
+      </div>
+    </mat-card>
+  </div>
+  <div #elseBlock>
+    <mat-card>
+      NO Data...
+    </mat-card>
+  </div>
 
 </div>

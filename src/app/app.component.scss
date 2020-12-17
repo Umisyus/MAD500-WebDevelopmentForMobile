@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+//@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 .spacer {
   display: flex;
@@ -8,4 +8,14 @@
 .mat-button {
   flex: 1;
   margin: 15%;
+}
+
+.mat-button a {
+  color: white;
+}
+
+.mat-toolbar {
+  margin: 0;
+  padding: 5%;
+  background-color: steelblue;
 }

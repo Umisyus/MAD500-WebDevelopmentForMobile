@@ -12,6 +12,6 @@ export class DataStoreService implements InMemoryDbService {
 
   createDb(): object {
     // Return an empty ITEMS_LIST.ts
-    return {itemList: ITEMS_LIST};
+    return {items: ITEMS_LIST};
   }
 }

@@ -1,1 +1,12 @@
-<p>item-details works!</p>
+<mat-card>
+
+  <img src="{{item.imageURL}}" alt="{{item.title}} Image"/>
+  <br>
+  <mat-card-title>
+    {{item.title}}
+  </mat-card-title>
+  <br>
+  <mat-card-content>{{item.description}}</mat-card-content>
+  <br>
+  <mat-card-content>Date: {{item.dateAdded}}</mat-card-content>
+</mat-card>

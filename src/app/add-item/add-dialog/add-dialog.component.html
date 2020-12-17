@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add New Item</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="item.title"/><br/>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Body</mat-label>
+    <input matInput [(ngModel)]="item.description"/><br/>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input matInput [(ngModel)]="item.imgURL"> <br/>
+  </mat-form-field>
+  <br/>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button [mat-dialog-close]="triggerItemEvent()">Add a New item!</button>
+  </div>
+</div>
