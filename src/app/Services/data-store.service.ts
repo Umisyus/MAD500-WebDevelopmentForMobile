@@ -14,4 +14,9 @@ export class DataStoreService implements InMemoryDbService {
     // Return an empty ITEMS_LIST.ts
     return {items: ITEMS_LIST};
   }
+
+  IDGen(): number {
+    return 0;
+  }
+
 }

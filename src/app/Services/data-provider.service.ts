@@ -10,7 +10,14 @@ import {ItemModel} from '../Data_Files/itemModel';
 })
 
 export class DataProviderService {
-  url = 'api/item/';
+
+  constructor(private http: HttpClient) {
+  }
+
+  item;
+
+  url = 'api/items';
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-type':
@@ -18,22 +25,22 @@ export class DataProviderService {
     })
   };
 
-  constructor(private http: HttpClient) {
-  }
-
 // Gets all items as an Observable ItemModel[]
   getAllItems = () => this.http.get<ItemModel[]>(this.url);
 
   // Adds an item the content array
-  addItem = (item: ItemModel) => {
+  // tslint:disable-next-line:typedef
+  addItem(item: ItemModel) {
+
     console.log(`Got a new Item: ${item.title}`);
+
     return this.http.post<ItemModel>(this.url, item, this.httpOptions);
-  };
+  }
 
   // Gets an item based on it's ID
-  getItem = (id: number): Observable<ItemModel> => this.http.get<ItemModel>('api/item/' + id);
+  getItem = (id: number): Observable<ItemModel> => this.http.get<ItemModel>(this.url + '/' + id);
 
   // Deletes an item based on ID
-  deleteItem = (id: number): Observable<ItemModel> => this.http.delete<ItemModel>('api/item/' + id);
+  deleteItem = (id: number): Observable<ItemModel> => this.http.delete<ItemModel>(this.url + '/' + id);
 
 }

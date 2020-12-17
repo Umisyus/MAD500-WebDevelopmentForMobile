@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {ItemModel} from '../../Data_Files/itemModel';
 
@@ -8,16 +8,15 @@ import {ItemModel} from '../../Data_Files/itemModel';
   styleUrls: ['./add-dialog.component.scss']
 })
 export class AddDialogComponent {
-
   item: any;
-  @Output() newItem = new EventEmitter<any>();
+  // @Output() newItem = new EventEmitter<ItemModel>();
 
   constructor(public dialogRef: MatDialogRef<AddDialogComponent>) {
 
     this.item = {
       title: '',
       description: '',
-      // dateAdded: new Date(),
+      dateAdded: new Date().toDateString(),
       imageURL: ''
     };
   }
@@ -26,8 +25,4 @@ export class AddDialogComponent {
     this.dialogRef.close();
   }
 
-  triggerItemEvent(): void {
-    this.newItem.emit(this.item);
-    // console.log(this.item);
-  }
 }
