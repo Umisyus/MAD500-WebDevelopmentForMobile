@@ -1,0 +1,11 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+.spacer {
+  display: flex;
+  flex: 1;
+}
+
+.mat-button {
+  flex: 1;
+  margin: 15%;
+}
