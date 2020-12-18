@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngularStoreApp": {
+    "UmitsStoreApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/AngularStoreApp",
+            "outputPath": "dist/UmitsStoreApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -88,18 +88,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngularStoreApp:build"
+            "browserTarget": "UmitsStoreApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngularStoreApp:build:production"
+              "browserTarget": "UmitsStoreApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngularStoreApp:build"
+            "browserTarget": "UmitsStoreApp:build"
           }
         },
         "test": {
@@ -136,15 +136,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngularStoreApp:serve"
+            "devServerTarget": "UmitsStoreApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "AngularStoreApp:serve:production"
+              "devServerTarget": "UmitsStoreApp:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "AngularStoreApp"
+  "defaultProject": "UmitsStoreApp"
 }
