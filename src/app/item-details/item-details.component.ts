@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ItemModel} from '../Data_Files/itemModel';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DataProviderService} from '../Services/data-provider.service';
 
 @Component({
   selector: 'app-item-details',
@@ -8,11 +9,20 @@ import {ItemModel} from '../Data_Files/itemModel';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  @Input() item: ItemModel;
+  item;
+  id;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private dps: DataProviderService) {
+    console.log(`ID is: ${this.id}`);
+
+    this.route.paramMap.subscribe(param => this.id = param.get('id'));
+    // Get the movie
+    this.dps.getItem(this.id).subscribe(value => this.item = value);
+
+  }
 
   ngOnInit(): void {
+
   }
 
 }

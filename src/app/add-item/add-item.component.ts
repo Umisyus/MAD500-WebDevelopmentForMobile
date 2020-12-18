@@ -20,7 +20,7 @@ export class AddItemComponent {
       id: null,
       title: '',
       description: '',
-      dateAdded: new Date().toDateString(),
+      dateAdded: '',
       imageURL: ''
     };
   }

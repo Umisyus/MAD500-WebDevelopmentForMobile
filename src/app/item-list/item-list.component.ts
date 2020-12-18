@@ -7,6 +7,7 @@ import {DataProviderService} from '../Services/data-provider.service';
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.scss']
 })
+
 export class ItemListComponent implements OnInit {
   @Input() item;
   items: ItemModel[] = [];
@@ -19,11 +20,10 @@ export class ItemListComponent implements OnInit {
     this.dps.getAllItems().subscribe(value => this.items = value);
   }
 
-  getNewItem($event): void {
-    this.item = $event;
+  deleteItem(id: number): void {
+    this.dps.deleteItem(id).subscribe(value => this.getAllItems());
   }
 
   ngOnInit(): void {
   }
-
 }

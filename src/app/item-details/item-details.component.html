@@ -1,3 +1,8 @@
+<button>
+  <a routerLink="..">Go Back</a>
+</button>
+
+<div *ngIf="item">
 <mat-card>
 
   <img src="{{item.imageURL}}" alt="{{item.title}} Image"/>
@@ -10,3 +15,4 @@
   <br>
   <mat-card-content>Date: {{item.dateAdded}}</mat-card-content>
 </mat-card>
+</div>

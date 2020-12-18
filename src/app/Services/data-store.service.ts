@@ -12,7 +12,7 @@ export class DataStoreService implements InMemoryDbService {
 
   createDb(): object {
     // Return an empty ITEMS_LIST.ts
-    return {items: ITEMS_LIST};
+    return {item: ITEMS_LIST};
   }
 
   IDGen(): number {

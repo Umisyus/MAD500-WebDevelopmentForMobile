@@ -16,7 +16,7 @@ export class DataProviderService {
 
   item;
 
-  url = 'api/items';
+  url = 'api/item';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -25,7 +25,7 @@ export class DataProviderService {
     })
   };
 
-// Gets all items as an Observable ItemModel[]
+  // Gets all items as an Observable ItemModel[]
   getAllItems = () => this.http.get<ItemModel[]>(this.url);
 
   // Adds an item the content array
@@ -33,14 +33,14 @@ export class DataProviderService {
   addItem(item: ItemModel) {
 
     console.log(`Got a new Item: ${item.title}`);
-
+    item.id += 1;
     return this.http.post<ItemModel>(this.url, item, this.httpOptions);
   }
 
   // Gets an item based on it's ID
-  getItem = (id: number): Observable<ItemModel> => this.http.get<ItemModel>(this.url + '/' + id);
+  getItem = (id: number): Observable<ItemModel> => this.http.get<ItemModel>(`${this.url}/${id}`);
 
   // Deletes an item based on ID
-  deleteItem = (id: number): Observable<ItemModel> => this.http.delete<ItemModel>(this.url + '/' + id);
+  deleteItem = (id: number): Observable<ItemModel> => this.http.delete<ItemModel>(`${this.url}/${id}`);
 
 }

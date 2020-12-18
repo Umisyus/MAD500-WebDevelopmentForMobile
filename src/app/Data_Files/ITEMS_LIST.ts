@@ -5,7 +5,7 @@ export let ITEMS_LIST: ItemModel[] = [
     id: 0,
     title: '',
     description: '',
-    dateAdded: Date.now().toString(),
+    dateAdded: '',
     imageURL: '',
-
-  }];
+  }
+];
