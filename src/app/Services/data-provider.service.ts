@@ -14,9 +14,7 @@ export class DataProviderService {
   constructor(private http: HttpClient) {
   }
 
-  item;
-
-  url = 'api/item';
+  url = 'api/items';
 
   private httpOptions = {
     headers: new HttpHeaders({

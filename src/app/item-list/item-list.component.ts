@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemModel} from '../Data_Files/itemModel';
 import {DataProviderService} from '../Services/data-provider.service';
 import {Sort} from '@angular/material/sort';
@@ -10,7 +10,6 @@ import {Sort} from '@angular/material/sort';
 })
 
 export class ItemListComponent implements OnInit {
-  @Input() item;
 
   items: ItemModel[] = [];
 
@@ -20,14 +19,13 @@ export class ItemListComponent implements OnInit {
   }
 
   getAllItems(): void {
-    this.dps.getAllItems().subscribe(value => {
-      console.log(`Item count: ${value.length}`);
-      return this.items = value;
-    });
+    // Filter the table and assign the items
+    this.dps.getAllItems().subscribe(value => this.items = value.filter(value1 => value1.id > 0));
   }
 
   deleteItem(id: number): void {
-    this.dps.deleteItem(id).subscribe(value => this.getAllItems());
+    // Reload table
+    this.dps.deleteItem(id).subscribe(_ => this.getAllItems());
   }
 
   ngOnInit(): void {

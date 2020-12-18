@@ -11,12 +11,14 @@ export class DataStoreService implements InMemoryDbService {
   }
 
   createDb(): object {
-    // Return an empty ITEMS_LIST.ts
-    return {item: ITEMS_LIST};
-  }
 
-  IDGen(): number {
-    return 0;
+    // let ITEMS: any[] = [];
+    return {items: ITEMS_LIST};
+    // let db: {}[];
+    //
+    // db = ITEMS_LIST;
+    //
+    // return {items: db};
   }
 
 }
