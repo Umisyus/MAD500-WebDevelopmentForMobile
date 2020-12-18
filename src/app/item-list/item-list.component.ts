@@ -33,7 +33,17 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sortedData(sort: Sort): void {
+  sortedData(sort: Sort): ItemModel[] {
     sort.direction = 'asc';
+    let sorted;
+
+    if (sort.direction === 'asc') {
+      sorted = this.items.sort((a, b) => a.id < b.id ? a.id : b.id);
+      // Sort descending
+    } else {
+      sorted = this.items.sort((a, b) => a.id > b.id ? a.id : b.id);
+    }
+    // Return results
+    return sorted || this.items;
   }
 }

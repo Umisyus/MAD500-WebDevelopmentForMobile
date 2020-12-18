@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit {
   }
 
   items = [];
+  dataSource;
 
   genItems(): void {
 

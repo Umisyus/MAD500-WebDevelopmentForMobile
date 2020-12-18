@@ -6,17 +6,18 @@
   align-content: center;
 }
 
-.mat-primary {
+.container2 {
+  display: flex;
+  align-content: space-between;
+}
+
+button {
   background-color: orange;
   color: white;
+  margin: 10px;
 }
 
 .mat-primary a {
   color: white;
-}
-
-.container2 {
-  margin: auto;
-  justify-content: center;
-  align-content: center;
+  text-underline: transparent;
 }
