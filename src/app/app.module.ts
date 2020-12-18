@@ -15,6 +15,7 @@ import {AddDialogComponent} from './add-item/add-dialog/add-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   {path: 'item/:id', component: ItemDetailsComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
     HttpClientInMemoryWebApiModule.forRoot(DataStoreService, {dataEncapsulation: false}),
     BrowserAnimationsModule,
     MatSortModule,
+    MatTableModule,
   ],
 
   exports: [RouterModule, MaterialModule],

@@ -7,15 +7,15 @@
 </mat-toolbar>
 
 
-
 <div class="mat-list-base">
 <!--  // Sorts Table by item ID-->
+  <table matSort (matSortChange)="sortedData($event)" mat-sort-header matSortActive="name" matSortStart="asc">
 
-  <div *ngIf="items.length > 0 else nope">
-    <table matSort (matSortChange)="sortedData($event)" matSortStart="asc">
-      <tr>
-        <mat-card class="mat-list-item" *ngFor="let item of items;">
+    <!-- The item list -->
+    <tr *ngIf="items || items.length > 0">
 
+      <mat-card class="mat-list-item" *ngFor="let item of items;">
+        <div *ngIf="item.id">
           Title:{{item.title}}
           Date: {{item.dateAdded}}
 
@@ -24,16 +24,51 @@
           <button mat-button class="mat-warn" (click)="deleteItem(item.id)">Delete Item
           </button>
 
-        </mat-card>
-      </tr>
-      <!-- The item list -->
+        </div>
+      </mat-card>
+    </tr>
   </table>
-  </div>
 
-  <ng-template #nope>
+  <div *ngIf="!items && items.length <= 0">
 
     NO Data...
 
-  </ng-template>
+  </div>
 
 </div>
+
+<!--NOTE TO SELF--NOT WORKING - IGNORE-->
+<!--<div class="mat-list-base">-->
+<!--  &lt;!&ndash;  // Sorts Table by item ID&ndash;&gt;-->
+
+<!--  <div *ngIf="items.length > 0 else nope">-->
+
+<!--    <table (matSortChange)="sortedData($event)" [dataSource]="items"-->
+<!--           mat-table matSort matSortStart="asc">-->
+
+<!--      <mat-card *ngFor="let item of items;" class="mat-list-item">-->
+<!--        <tr matColumnDef="item-id" mat-sort-header="id{{item.id}}">-->
+<!--          <td mat-row>-->
+
+<!--            Title:{{item.title}}-->
+<!--            Date: {{item.dateAdded}}-->
+
+<!--            <a [routerLink]="['/item', item.id ]" routerLinkActive="active">View details</a>-->
+
+<!--            <button mat-button class="mat-warn" (click)="deleteItem(item.id)">Delete Item</button>-->
+
+<!--          </td>-->
+<!--        </tr>-->
+<!--      </mat-card>-->
+
+<!--    </table>-->
+<!--    &lt;!&ndash; The item list &ndash;&gt;-->
+<!--  </div>-->
+
+<!--  <ng-template #nope>-->
+
+<!--    NO Data...-->
+
+<!--  </ng-template>-->
+
+<!--</div>-->

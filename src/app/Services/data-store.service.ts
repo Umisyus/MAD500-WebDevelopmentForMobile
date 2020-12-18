@@ -12,13 +12,8 @@ export class DataStoreService implements InMemoryDbService {
 
   createDb(): object {
 
-    // let ITEMS: any[] = [];
     return {items: ITEMS_LIST};
-    // let db: {}[];
-    //
-    // db = ITEMS_LIST;
-    //
-    // return {items: db};
+
   }
 
 }
