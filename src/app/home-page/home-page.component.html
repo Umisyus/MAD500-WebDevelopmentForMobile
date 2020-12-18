@@ -1,14 +1,21 @@
-<p>home-page works!</p>
+<div class="container">
 
-<app-add-item></app-add-item>
+  <div class="container2">
 
-<div class="mat-toolbar">
+    <button mat-raised-button class="mat-primary">
+      <a routerLink="/add" routerLinkActive="active">
+        Add Item to List
+      </a>
 
-  <button mat-raised-button>
-    <a routerLink="/items" routerLinkActive="active">
-      View Item List
-    </a>
-  </button>
-  <button mat-raised-button class="mat-primary" (click)="genItems()">Generate Items</button>
+    </button>
+    <button mat-raised-button class="mat-primary">
+      <a routerLink="/items" routerLinkActive="active">
+        View Item List
+      </a>
+
+    </button>
+
+    <button mat-raised-button class="mat-warn" (click)="genItems()">Generate Items</button>
+
+  </div>
 </div>
-

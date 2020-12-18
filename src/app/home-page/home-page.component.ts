@@ -15,7 +15,8 @@ export class HomePageComponent implements OnInit {
   items = [];
 
   genItems(): void {
-    for (let i = 0; i < 3; i++) {
+
+    for (let i = 0; i < 10; i++) {
       this.items.push(
         {
           id: i,
