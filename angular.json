@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "UmitsStoreApp"
+    }
+  },
+  "defaultProject": "UmitsStoreApp",
+  "cli": {
+    "analytics": false
+  }
 }
